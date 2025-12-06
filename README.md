@@ -1,3 +1,5 @@
+# ADD FEATURE_CREATION AND RAG AFTER EVERYTHING IS IN PLACE --> UPDATED RAG-TEXT-FEATURES
+
 # FinTextSim-LLM: Improving Corporate Performance Prediction and Investment Decisions with Scalable LLM-Enhanced Financial Topic Modeling
 Repository containing the code for FinTextSim-LLM as outlined in Jehnen et al. (2025) (https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5365002) 
 FinTextSim-LLM is a a scalable and interpretable framework for extracting topic-specific sentiment from 10-K filings. 
