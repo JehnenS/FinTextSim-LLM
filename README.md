@@ -1,4 +1,4 @@
-# FinTextSim-LLM
+# FinTextSim-LLM: Improving Corporate Performance Prediction and Investment Decisions with Scalable LLM-Enhanced Financial Topic Modeling
 Repository containing the code for FinTextSim-LLM as outlined in Jehnen et al. (2025) (https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5365002) 
 FinTextSim-LLM is a a scalable and interpretable framework for extracting topic-specific sentiment from 10-K filings. 
 Our approach combines FinTextSim, a domain-specific sentence-transformer, with a lightweight, retrieval-augmented generation setup. 
@@ -29,10 +29,7 @@ Financial data is sourced from FinancialModelingPrep (https://site.financialmode
 - isolation of the MDA&A section (Item 7 and Item 7A)
 - detection of outlier documents
 - tokenization into sentences and text cleaning
-- perform necessary preprocessing steps to conduct topic modeling with BERTopic as well as LDA and NMF
-
-## fmp
-- load data from FinancialModelingPrep.com
+- perform necessary preprocessing steps
 
 ### modalities
 - extraction of modalities (sentiment)
@@ -51,6 +48,9 @@ Financial data is sourced from FinancialModelingPrep (https://site.financialmode
 
 ### rag
 - running of the RAG module for ambiguous datapoints identified by entropy and silhouette score
+
+### feature_creation
+- create financial and textual features for the ML tasks
 
 ### ml
 - creation and evaluation of
