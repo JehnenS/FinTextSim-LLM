@@ -77,13 +77,13 @@ Financial data is sourced from FinancialModelingPrep (https://site.financialmode
 To cite the FinTextSim paper, please use the following bibtex reference:
 
 **Jehnen, S., Ordieres-Meré, J., & Villalba-Díez, J. (2025).**  
-*FinTextSim: Enhancing Financial Text Analysis with BERTopic.*  
-arXiv:2504.15683. https://doi.org/10.48550/arXiv.2504.15683  
+*FinTextSim-LLM: Improving Corporate Performance Prediction Through Scalable, Llm-Enhanced Financial Topic Modeling and Aspect-Based Sentiment.*  
+https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5365002  
 
 ```bibtex
 @article{jehnen2025,
-  title={Fintextsim-Llm: Improving Corporate Performance Prediction Through Scalable, Llm-Enhanced Financial Topic Modeling and Aspect-Based Sentiment},
+  title={FinTextSim-LLM: Improving Corporate Performance Prediction Through Scalable, Llm-Enhanced Financial Topic Modeling and Aspect-Based Sentiment},
   author={Jehnen, Simon and Ordieres-Mer{\'e}, Joaqu{\'\i}n and Villalba-D{\'\i}ez, Javier},
-  journal={Llm-Enhanced Financial Topic Modeling and Aspect-Based Sentiment},
+  journal={SSRN},
   year={2025}
 }
