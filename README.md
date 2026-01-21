@@ -1,4 +1,4 @@
-# ADD FEATURE_CREATION, RAG + FINAL RESULTS AND IMPLICATIONS AFTER EVERYTHING IS IN PLACE --> UPDATED RAG-TEXT-FEATURES
+# ADD FEATURE_CREATION, RAG, ML-hedge portfolio + FINAL RESULTS AND IMPLICATIONS AFTER EVERYTHING IS IN PLACE --> UPDATED RAG-TEXT-FEATURES
 
 # FinTextSim-LLM: Improving Corporate Performance Prediction and Investment Decisions with Scalable LLM-Enhanced Financial Topic Modeling
 Repository containing the code for FinTextSim-LLM as outlined in Jehnen et al. (2025) (https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5365002) 
