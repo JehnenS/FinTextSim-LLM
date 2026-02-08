@@ -60,11 +60,15 @@ Financial data is sourced from FinancialModelingPrep (https://site.financialmode
 ## Results
 
 ### Topic Modeling with FinTextSim-LLM
-
 ![entropy_ssc_acl_modern_bert](https://github.com/user-attachments/assets/2df1563f-d686-4d60-85b2-53da6eb6e393)
+Entropy and Silhouette Score exhibit a strong negative correlation, suggesting that areas of higher uncertainty are concentrated in regions where the clusters are less clearly separated. 
+By applying SSC and entropy thresholds of 0.5 each, we identify 642,169 datapoints as ambiguous. 
+This corresponds to 12% of the total dataset, which is subsequently routed to the RAG-LLM module for further refinement.
+Of these flagged datapoints, 45,355 are ultimately classified as noise. 
+This selective handling yields an overall coverage of 99.1%, providing a significant improvement over embedding-clustering and other LLM-based topic modeling methods. 
 
 ![knn_rag_topic_representations](https://github.com/user-attachments/assets/a7cd5f6f-7adb-4432-ae16-55e515683f14)
-
+Besides the quantitative improvements, qualitative investigation of the topic representations further highlight FinTextSim-LLM's ability to extract meaningful financial themes from financial disclosures.
 
 ### Corporate Performance Prediction
 | Model  | Accuracy ↑  | F1 Score ↑  | ROC-AUC ↑   |
@@ -82,7 +86,7 @@ Financial data is sourced from FinancialModelingPrep (https://site.financialmode
 | XGB–F2 | 76.61       | 69.51       | 80.42       |
 | XGB–F3 | ***76.80*** | **69.70**   | 80.43       |
 
-
+RF achieves the strongest overall predictive performance, particularly with feature sets F1–F3, while XGBoost delivers the best single model–feature combination in ROC-AUC. Logistic Regression improves steadily with richer feature sets but remains weaker overall.
 
 ### Hedge Portfolio
 
@@ -102,6 +106,7 @@ Financial data is sourced from FinancialModelingPrep (https://site.financialmode
 | XGB–F2 | 0.0862          | 2.05          | 0.041       |
 | XGB–F3 | **0.0905**      | **2.14**      | **0.033**   |
 
+At portfolio formation, strategies augmented with topic-specific sentiment achieve economically large and highly significant excess returns, peaking at 13.2% for Logistic Regression with F3. Models using richer textual representations consistently outperform finance-only baselines, indicating immediate market underreaction to narrative disclosures.
 
 
 #### t = 1
@@ -120,6 +125,9 @@ Financial data is sourced from FinancialModelingPrep (https://site.financialmode
 | XGB–F2 | 0.0537          | 2.23          | 0.026       |
 | XGB–F3 | ***0.0542***    | **2.25**      | **0.025**   |
 
+One year after formation, portfolios remain profitable and statistically significant. 
+Both LR and XGB achieve the strongest performance with F3.
+XGBoost-F3 delivers the strongest performance. This persistence suggests that topic-specific sentiment contains durable forward-looking information not fully incorporated by markets.
 
 
 
@@ -139,7 +147,12 @@ Financial data is sourced from FinancialModelingPrep (https://site.financialmode
 | XGB–F2 | ***0.0282***    | ***1.44***    | ***0.150*** |
 | XGB–F3 | 0.0261          | 1.33          | 0.184       |
 
-
+Two years after formation, return magnitudes decline and statistical significance weakens.
+Yet, XGBoost with topic-level sentiment still delivers the highest performance. 
+The decay pattern is consistent with gradual information diffusion rather than immediate price adjustment.
 
 ## Implications
-
+The results demonstrate that topic-specific sentiment extracted from corporate disclosures provides economically meaningful and persistent signals for financial prediction. 
+Integrating FinTextSim-LLM outputs with traditional fundamentals improves classification accuracy, probability calibration, and downstream portfolio performance. 
+Hedge strategies based on enriched textual features generate large and statistically significant excess returns at formation and remain profitable over subsequent horizons, consistent with slow market incorporation of narrative information. 
+These findings suggest that qualitative disclosures encode durable, forward-looking signals that complement accounting data and can be deployed in scalable, transparent forecasting systems for real-world financial applications.
