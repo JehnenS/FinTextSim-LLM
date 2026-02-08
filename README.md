@@ -1,5 +1,4 @@
 # FinTextSim-LLM: Improving Corporate Performance Prediction and Investment Decisions with Scalable LLM-Enhanced Financial Topic Modeling
-Repository containing the code for FinTextSim-LLM as outlined in Jehnen et al. (2025) (https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5365002) 
 FinTextSim-LLM is a a scalable and interpretable framework for extracting topic-specific sentiment from 10-K filings. 
 Our approach combines FinTextSim, a domain-specific sentence-transformer, with a lightweight, retrieval-augmented generation setup. 
 88% of sentences are classified via efficient embedding-based similarity. Only ambiguous cases, identified through entropy and silhouette score, are passed to an LLM, guided by topic definitions and document context. 
