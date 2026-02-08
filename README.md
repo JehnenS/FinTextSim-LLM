@@ -114,17 +114,3 @@ Financial data is sourced from FinancialModelingPrep (https://site.financialmode
 
 ## Implications
 
-## Citation
-To cite the FinTextSim paper, please use the following bibtex reference:
-
-**Jehnen, S., Ordieres-Meré, J., & Villalba-Díez, J. (2025).**  
-*FinTextSim-LLM: Improving Corporate Performance Prediction Through Scalable, Llm-Enhanced Financial Topic Modeling and Aspect-Based Sentiment.*  
-https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5365002  
-
-```bibtex
-@article{jehnen2025,
-  title={FinTextSim-LLM: Improving Corporate Performance Prediction Through Scalable, Llm-Enhanced Financial Topic Modeling and Aspect-Based Sentiment},
-  author={Jehnen, Simon and Ordieres-Mer{\'e}, Joaqu{\'\i}n and Villalba-D{\'\i}ez, Javier},
-  journal={SSRN},
-  year={2025}
-}
