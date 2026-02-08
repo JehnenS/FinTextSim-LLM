@@ -61,6 +61,7 @@ Financial data is sourced from FinancialModelingPrep (https://site.financialmode
 
 ### Topic Modeling with FinTextSim-LLM
 ![entropy_ssc_acl_modern_bert](https://github.com/user-attachments/assets/2df1563f-d686-4d60-85b2-53da6eb6e393)
+
 Entropy and Silhouette Score exhibit a strong negative correlation, suggesting that areas of higher uncertainty are concentrated in regions where the clusters are less clearly separated. 
 By applying SSC and entropy thresholds of 0.5 each, we identify 642,169 datapoints as ambiguous. 
 This corresponds to 12% of the total dataset, which is subsequently routed to the RAG-LLM module for further refinement.
@@ -68,7 +69,8 @@ Of these flagged datapoints, 45,355 are ultimately classified as noise.
 This selective handling yields an overall coverage of 99.1%, providing a significant improvement over embedding-clustering and other LLM-based topic modeling methods. 
 
 ![knn_rag_topic_representations](https://github.com/user-attachments/assets/a7cd5f6f-7adb-4432-ae16-55e515683f14)
-Besides the quantitative improvements, qualitative investigation of the topic representations further highlight FinTextSim-LLM's ability to extract meaningful financial themes from financial disclosures.
+
+Besides quantitative improvements, qualitative investigation of the topic representations further highlight FinTextSim-LLM's ability to extract meaningful financial themes from financial disclosures.
 
 ### Corporate Performance Prediction
 | Model  | Accuracy ↑  | F1 Score ↑  | ROC-AUC ↑   |
