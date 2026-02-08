@@ -1,5 +1,3 @@
-# ADD FEATURE_CREATION, RAG, ML-hedge portfolio + FINAL RESULTS AND IMPLICATIONS AFTER EVERYTHING IS IN PLACE --> UPDATED RAG-TEXT-FEATURES
-
 # FinTextSim-LLM: Improving Corporate Performance Prediction and Investment Decisions with Scalable LLM-Enhanced Financial Topic Modeling
 Repository containing the code for FinTextSim-LLM as outlined in Jehnen et al. (2025) (https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5365002) 
 FinTextSim-LLM is a a scalable and interpretable framework for extracting topic-specific sentiment from 10-K filings. 
@@ -33,6 +31,20 @@ Financial data is sourced from FinancialModelingPrep (https://site.financialmode
 - tokenization into sentences and text cleaning
 - perform necessary preprocessing steps
 
+### evaluation
+- evaluation of cluster properties of FinTextSim-LLM's pseudo label assignments
+- calculation of entropy and silhouette score for each datapoint
+- topic quality assessment
+
+### feature_creation
+- creation of textual, financial and economic features
+- extract financial targets
+
+### ml
+- creation and evaluation of
+-   binary prediction of normalized diluted EPS movement
+-   hedge portfolio
+
 ### modalities
 - extraction of modalities (sentiment)
 - embedding generation
@@ -40,24 +52,14 @@ Financial data is sourced from FinancialModelingPrep (https://site.financialmode
 ### preprocess
 - preprocessing for ML approaches
 
+### rag
+- running of the RAG module for ambiguous datapoints identified by entropy and silhouette score
+
 ### topic_assignment
 - pseudo-label assignment for each datapoint
 - assignment based on cosine similarity to the closest topic centroid from FinTextSim's labeled dataset
 
-### evaluation
-- evaluation of cluster properties of FinTextSim-LLM's pseudo label assignments
-- calculation of entropy and silhouette score for each datapoint
 
-### rag
-- running of the RAG module for ambiguous datapoints identified by entropy and silhouette score
-
-### feature_creation
-- create financial and textual features for the ML tasks
-
-### ml
-- creation and evaluation of
--   binary prediction of normalized diluted EPS movement
--   hedge portfolio
 
 
 ## Results
