@@ -88,7 +88,12 @@ Besides quantitative improvements, qualitative investigation of the topic repres
 | XGB–F2 | 76.61       | 69.51       | 80.42       |
 | XGB–F3 | ***76.80*** | **69.70**   | 80.43       |
 
-RF achieves the strongest overall predictive performance, particularly with feature sets F1–F3, while XGBoost delivers the best single model–feature combination in ROC-AUC. Logistic Regression improves steadily with richer feature sets but remains weaker overall.
+Across all models, text-only features (F0) achieve ROC-AUC values above random guessing, confirming that narrative disclosures alone contain forward-looking information about future EPS changes. 
+However, structured financial variables remain the dominant drivers of performance, with F1–F3 consistently outperforming F0. 
+For Logistic Regression, topic-specific sentiment from FinTextSim-LLM (F3) yields the strongest accuracy and F1 scores, while document-level sentiment (F2) provides little additional benefit, suggesting that economically grounded topic decomposition aligns better with linear models. 
+In contrast, Random Forest shows no sensitivity to sentiment augmentation, relying primarily on financial predictors. 
+XGBoost delivers the best overall performance across models, with only marginal gains from adding sentiment, indicating that nonlinear learners already capture most predictive structure from fundamentals. 
+Overall, ensemble methods outperform linear models, and while textual signals are informative, their incremental contribution to short-horizon EPS classification remains modest in terms of binary corporate performance prediction.
 
 ### Hedge Portfolio
 
@@ -110,6 +115,12 @@ RF achieves the strongest overall predictive performance, particularly with feat
 
 At portfolio formation, strategies augmented with topic-specific sentiment achieve economically large and highly significant excess returns, peaking at 13.2% for Logistic Regression with F3. Models using richer textual representations consistently outperform finance-only baselines, indicating immediate market underreaction to narrative disclosures.
 
+At the initial horizon, all models generate statistically significant excess returns, indicating persistent market underreaction to both financial fundamentals and textual information in 10-K disclosures. 
+Text-only features (F0) already recover a large share of the perfect-foresight benchmark, confirming that narrative disclosures contain economically meaningful short-term signals. 
+Logistic Regression achieves the strongest overall performance, with topic-specific sentiment from FinTextSim-LLM (F3) producing a 13.2% excess return, outperforming a perfect-foresight portfolio. 
+Random Forest remains constant across feature sets.
+Similar to Logistic Regression, XGBoost improves progressively across feature sets and reaches its highest returns under F3. 
+
 
 #### t = 1
 | Model  | Excess Return ↑ | t-Statistic ↑ | p-Value ↓   |
@@ -127,10 +138,12 @@ At portfolio formation, strategies augmented with topic-specific sentiment achie
 | XGB–F2 | 0.0537          | 2.23          | 0.026       |
 | XGB–F3 | ***0.0542***    | **2.25**      | **0.025**   |
 
-One year after formation, portfolios remain profitable and statistically significant. 
-Both LR and XGB achieve the strongest performance with F3.
-XGBoost-F3 delivers the strongest performance. This persistence suggests that topic-specific sentiment contains durable forward-looking information not fully incorporated by markets.
-
+After one year, hedge portfolio performance weakens but remains economically and statistically meaningful for several model–feature combinations. 
+The perfect-foresight benchmark collapses, indicating rapid market adjustment to realized fundamentals. 
+Text-only features (F0) continue to deliver sizable excess returns, confirming that narrative disclosures retain predictive relevance beyond earnings announcements. 
+The strongest results arise when textual sentiment is combined with structured variables: XGBoost with topic-specific sentiment (F3) achieves the highest excess return, followed closely by Logistic Regression under the same specification. 
+Random Forest performs comparably weaker and does not show sensitivity to feature sets. 
+Overall, the persistence of positive returns and their systematic improvement when topic-aligned sentiment is included suggest gradual diffusion of qualitative information from 10-Ks.
 
 
 #### t = 2
@@ -155,6 +168,6 @@ The decay pattern is consistent with gradual information diffusion rather than i
 
 ## Implications
 The results demonstrate that topic-specific sentiment extracted from corporate disclosures provides economically meaningful and persistent signals for financial prediction. 
-Integrating FinTextSim-LLM outputs with traditional fundamentals improves classification accuracy, probability calibration, and downstream portfolio performance. 
+Integrating FinTextSim-LLM outputs with traditional fundamentals improves probability calibration, and downstream portfolio performance. 
 Hedge strategies based on enriched textual features generate large and statistically significant excess returns at formation and remain profitable over subsequent horizons, consistent with slow market incorporation of narrative information. 
 These findings suggest that qualitative disclosures encode durable, forward-looking signals that complement accounting data and can be deployed in scalable, transparent forecasting systems for real-world financial applications.
