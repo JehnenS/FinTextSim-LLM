@@ -2,19 +2,15 @@
 Repository containing the code for FinTextSim-LLM as outlined in Jehnen et al. (2025) (https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5365002) 
 FinTextSim-LLM is a a scalable and interpretable framework for extracting topic-specific sentiment from 10-K filings. 
 Our approach combines FinTextSim, a domain-specific sentence-transformer, with a lightweight, retrieval-augmented generation setup. 
-Over 86% of sentences are classified via efficient embedding-based similarity. Only ambiguous cases, identified through entropy and silhouette score, are passed to an LLM, guided by topic definitions and document context. 
+88% of sentences are classified via efficient embedding-based similarity. Only ambiguous cases, identified through entropy and silhouette score, are passed to an LLM, guided by topic definitions and document context. 
 This hybrid design injects domain-knowledge, improves efficiency and enhances transparency, addressing key concerns about LLM deployment in financial settings.
 
-Empirically, FinTextSim-LLM achieves \textcolor{red}{98.2\%} coverage, substantially outperforming embedding-clustering and LLM-based topic modeling methods.
-When integrated into predictive models,  FinTextSim-LLM's topic-specific sentiment significantly enhances forecasts of changes in diluted earnings per share, outperforming financial-only models, and exceeding the effect of document-level sentiment by up to \textcolor{red}{49\%}.
-
-Importantly, in a downstream hedge portfolio task, models incorporating topic-level sentiment generate statistically significant excess returns, capturing persistent underreaction to narrative disclosures. 
-Text-only features alone recover a substantial share of the return-relevant information, while combining sentiment with financial variables yields the strongest and most robust portfolio performance across multiple time horizons. 
-These findings highlight that qualitative disclosures encode durable, forward-looking information that complements quantitative fundamentals.
+Empirically, FinTextSim-LLM achieves 99.1% coverage, substantially outperforming embedding-clustering and LLM-based topic modeling methods.
+When integrated into predictive models of diluted earnings-per-share direction, topic-specific sentiment yields systematic improvements in probability calibration.
+Importantly, in a downstream hedge-portfolio evaluation, models incorporating topic-level sentiment generate economically large and statistically significant excess returns of up to 13%, capturing persistent market underreaction. Text-only strategies recover up to 84% of the perfect-foresight benchmark. Overall, combining sentiment with financial variables yields the strongest and most robust portfolio performance across multiple time horizons.
+These findings indicate that qualitative disclosures encode durable, forward-looking information that complements quantitative fundamentals.
 
 Overall, FinTextSim-LLM provides a transparent, scalable, and domain-aligned approach for integrating LLM-derived textual signals into financial prediction, offering both improved forecasting performance and economically meaningful investment insights.
-The processing of the code is organized into several modules.
-
 
 ## Data Origin
 We source our data from the Notre Dame Software Repository for Accounting and Finance in text-file format, which underwent a 'Stage One Parse' to remove all HTML tags. 
@@ -66,11 +62,54 @@ Financial data is sourced from FinancialModelingPrep (https://site.financialmode
 
 ### Topic Modeling with FinTextSim-LLM
 
+![entropy_ssc_acl_modern_bert](https://github.com/user-attachments/assets/2df1563f-d686-4d60-85b2-53da6eb6e393)
+
+![knn_rag_topic_representations](https://github.com/user-attachments/assets/a7cd5f6f-7adb-4432-ae16-55e515683f14)
+
 
 ### Corporate Performance Prediction
 
+| Model                | Intratopic Similarity ↑ | Intertopic Similarity ↓ | Outliers within BERTopic ↓ |
+|-----------------------|--------------------------|---------------------------|------------------|
+| FinTextSim            | **0.998**                | **-0.075**                  | **240,823**             |
+| all-MiniLM-L6-v2 (AM) | 0.584                     | 0.563                      | 781,965             |
+| all-mpnet-base-v2     | 0.614                     | 0.625                      | 784,225             |
+| distil-RoBERTa      | 0.773                    | 0.883                        | 1,332,620          |
+
 
 ### Hedge Portfolio
+
+#### t = 0
+
+| Model                | Intratopic Similarity ↑ | Intertopic Similarity ↓ | Outliers within BERTopic ↓ |
+|-----------------------|--------------------------|---------------------------|------------------|
+| FinTextSim            | **0.998**                | **-0.075**                  | **240,823**             |
+| all-MiniLM-L6-v2 (AM) | 0.584                     | 0.563                      | 781,965             |
+| all-mpnet-base-v2     | 0.614                     | 0.625                      | 784,225             |
+| distil-RoBERTa      | 0.773                    | 0.883                        | 1,332,620          |
+
+
+#### t = 1
+
+| Model                | Intratopic Similarity ↑ | Intertopic Similarity ↓ | Outliers within BERTopic ↓ |
+|-----------------------|--------------------------|---------------------------|------------------|
+| FinTextSim            | **0.998**                | **-0.075**                  | **240,823**             |
+| all-MiniLM-L6-v2 (AM) | 0.584                     | 0.563                      | 781,965             |
+| all-mpnet-base-v2     | 0.614                     | 0.625                      | 784,225             |
+| distil-RoBERTa      | 0.773                    | 0.883                        | 1,332,620          |
+
+
+
+#### t = 2
+
+| Model                | Intratopic Similarity ↑ | Intertopic Similarity ↓ | Outliers within BERTopic ↓ |
+|-----------------------|--------------------------|---------------------------|------------------|
+| FinTextSim            | **0.998**                | **-0.075**                  | **240,823**             |
+| all-MiniLM-L6-v2 (AM) | 0.584                     | 0.563                      | 781,965             |
+| all-mpnet-base-v2     | 0.614                     | 0.625                      | 784,225             |
+| distil-RoBERTa      | 0.773                    | 0.883                        | 1,332,620          |
+
+
 
 
 ## Implications
